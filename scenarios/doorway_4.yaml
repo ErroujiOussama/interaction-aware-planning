@@ -1,0 +1,21 @@
+name: doorway_4
+description: >
+  Two rooms separated by a wall with a single 0.9 m door: only one robot fits
+  through at a time. Two robots on each side swap rooms. Bottleneck where
+  someone has to wait; expected failure case of purely reactive methods.
+dt: 0.1
+t_max: 40.0
+goal_tol: 0.1
+model: single_integrator
+robot: {radius: 0.25, v_max: 1.0, w_max: 2.0}
+noise: {start: 0.03, goal: 0.0}
+map:
+  bounds: [-5, -3.3, 5, 3.3]
+  rects:
+    - [-0.2, 0.45, 0.2, 3.3]     # wall above the door
+    - [-0.2, -3.3, 0.2, -0.45]   # wall below the door
+robots:
+  - {start: [-3.0, 1.2], goal: [3.0, -1.2]}
+  - {start: [-3.0, -1.2], goal: [3.0, 1.2]}
+  - {start: [3.0, 1.2], goal: [-3.0, -1.2]}
+  - {start: [3.0, -1.2], goal: [-3.0, 1.2]}

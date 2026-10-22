@@ -1,0 +1,24 @@
+name: crossing_4
+description: >
+  Four-way intersection of two 2 m wide corridors. Each robot keeps 0.3 m to
+  the right and drives to the opposite side: opposite robots pass each other,
+  perpendicular ones meet in the centre at the same time. Tests who gets
+  priority and how fair the delays are.
+dt: 0.1
+t_max: 40.0
+goal_tol: 0.1
+model: single_integrator
+robot: {radius: 0.25, v_max: 1.0, w_max: 2.0}
+noise: {start: 0.03, goal: 0.0}
+map:
+  bounds: [-7, -7, 7, 7]
+  rects:
+    - [-7, -7, -1, -1]
+    - [1, -7, 7, -1]
+    - [-7, 1, -1, 7]
+    - [1, 1, 7, 7]
+robots:
+  - {start: [-6.0, -0.3], goal: [6.0, -0.3]}   # west -> east
+  - {start: [6.0, 0.3], goal: [-6.0, 0.3]}     # east -> west
+  - {start: [0.3, -6.0], goal: [0.3, 6.0]}     # south -> north
+  - {start: [-0.3, 6.0], goal: [-0.3, -6.0]}   # north -> south

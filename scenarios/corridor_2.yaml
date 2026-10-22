@@ -1,0 +1,19 @@
+name: corridor_2
+description: >
+  Two robots swap ends through an 8 m corridor (1.4 m wide) linking two rooms.
+  Head-on symmetric conflict: going straight must collide; reactive methods
+  (ORCA, DWA) tend to deadlock; someone has to yield or step aside.
+dt: 0.1
+t_max: 40.0
+goal_tol: 0.1
+model: single_integrator
+robot: {radius: 0.25, v_max: 1.0, w_max: 2.0}
+noise: {start: 0.02, goal: 0.0}
+map:
+  bounds: [0, -3, 14, 3]
+  rects:
+    - [3, 0.7, 11, 3]     # upper wall of the corridor
+    - [3, -3, 11, -0.7]   # lower wall of the corridor
+robots:
+  - {start: [1.0, 0.0], goal: [13.0, 0.0]}
+  - {start: [13.0, 0.0], goal: [1.0, 0.0]}

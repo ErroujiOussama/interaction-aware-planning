@@ -1,0 +1,14 @@
+name: circle_swap_4
+description: >
+  Four robots on a 4 m circle, each going to the antipodal point. Open space,
+  dense symmetric conflict in the centre. Classic benchmark for reciprocal
+  avoidance (ORCA paper) and for interaction-aware planning.
+dt: 0.1
+t_max: 40.0
+goal_tol: 0.1
+model: single_integrator
+robot: {radius: 0.25, v_max: 1.0, w_max: 2.0}
+noise: {start: 0.05, goal: 0.0}
+map:
+  bounds: [-6, -6, 6, 6]
+circle: {n: 4, radius: 4.0, center: [0.0, 0.0]}
